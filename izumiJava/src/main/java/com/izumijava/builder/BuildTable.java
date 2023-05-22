@@ -12,7 +12,9 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 读table
@@ -69,6 +71,7 @@ public class BuildTable {
                 readFieldInfo(tableInfo);
                 getKeyIndexInfo(tableInfo);
                 logger.info("tableInfo: {}", JsonUtils.convertObj2Json(tableInfo));
+                tableInfoList.add(tableInfo);
             }
         } catch (Exception e) {
             logger.error("读取表失败");
@@ -177,9 +180,11 @@ public class BuildTable {
     private static void getKeyIndexInfo(TableInfo tableInfo) {
         PreparedStatement ps = null;
         ResultSet fieldResult = null;
-
-        List<FieldInfo> fieldInfoList = new ArrayList<>();
         try {
+            Map<String, FieldInfo> tempMap = new HashMap();
+            for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+               tempMap.put(fieldInfo.getFieldName(), fieldInfo);
+            }
             ps = conn.prepareStatement(String.format(SQL_SHOW_TABLE_INDEX, tableInfo.getTableName()));
             fieldResult = ps.executeQuery();
             while (fieldResult.next()) {
@@ -194,11 +199,7 @@ public class BuildTable {
                     keyFieldList = new ArrayList();
                     tableInfo.getKeyIndexMap().put(keyName, keyFieldList);
                 }
-                for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
-                    if (fieldInfo.getFieldName().equals(columnName)) {
-                        keyFieldList.add(fieldInfo);
-                    }
-                }
+                keyFieldList.add(tempMap.get(columnName));
             }
         } catch (Exception e) {
             logger.error("读取索引失败");
