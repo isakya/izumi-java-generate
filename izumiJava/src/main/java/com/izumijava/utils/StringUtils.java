@@ -1,6 +1,5 @@
 package com.izumijava.utils;
 
-import java.util.Locale;
 
 public class StringUtils {
     public static String upperCaseFirstLetter(String field) {
