@@ -67,7 +67,7 @@ public class BuildTable {
                 tableInfo.setBeanName(beanName);
                 tableInfo.setComment(comment);
                 // 添加了后缀
-                tableInfo.setBeanParamName(beanName + Constants.SUFFIX_BEAN_PARAM);
+                tableInfo.setBeanParamName(beanName + Constants.SUFFIX_BEAN_QUERY);
                 readFieldInfo(tableInfo);
                 getKeyIndexInfo(tableInfo);
                 logger.info("tableInfo: {}", JsonUtils.convertObj2Json(tableInfo));
@@ -141,7 +141,7 @@ public class BuildTable {
                 if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPES, type)) {
                     haveDateTime = true;
                 }
-                if(ArrayUtils.contains(Constants.SQL_DATE_TYPES, type)) {
+                if (ArrayUtils.contains(Constants.SQL_DATE_TYPES, type)) {
                     haveDate = true;
                 }
                 if (ArrayUtils.contains(Constants.SQL_DECIMAL_TYPE, type)) {
@@ -184,7 +184,7 @@ public class BuildTable {
         try {
             Map<String, FieldInfo> tempMap = new HashMap();
             for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
-               tempMap.put(fieldInfo.getFieldName(), fieldInfo);
+                tempMap.put(fieldInfo.getFieldName(), fieldInfo);
             }
             ps = conn.prepareStatement(String.format(SQL_SHOW_TABLE_INDEX, tableInfo.getTableName()));
             fieldResult = ps.executeQuery();

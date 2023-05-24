@@ -1,68 +1,77 @@
-package com.izumiJava.entity.po;
+package com.izumiJava.entity.query;
 
-import java.io.Serializable;
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-import com.izumiJava.enums.DateTimePatternEnum;
-import com.izumiJava.utils.DateUtils;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
- * @Description:用户信息
+ * @Description:用户信息查询对象
  * @author:izumi
  * @Date:2023/05/24
  */
-public class UserInfo implements Serializable {
+public class UserInfoQuery{
 	/**
 	 * 用户ID
 	 */
 	private String userId;
+
+	private String userIdFuzzy;
 
 	/**
 	 * 昵称
 	 */
 	private String nickName;
 
+	private String nickNameFuzzy;
+
 	/**
 	 * 邮箱
 	 */
 	private String email;
+
+	private String emailFuzzy;
 
 	/**
 	 * qqOpenId
 	 */
 	private String qqOpenId;
 
+	private String qqOpenIdFuzzy;
+
 	/**
 	 * qq头像
 	 */
 	private String qqAvatar;
+
+	private String qqAvatarFuzzy;
 
 	/**
 	 * 密码(md5)
 	 */
 	private String password;
 
+	private String passwordFuzzy;
+
 	/**
 	 * 加入时间
 	 */
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date joinTime;
+
+	private String joinTimeEnd;
+
+	private String joinTimeStart;
 
 	/**
 	 * 最后一次登录时间
 	 */
-	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastLoginTime;
+
+	private String lastLoginTimeEnd;
+
+	private String lastLoginTimeStart;
 
 	/**
 	 * 状态(0: 禁用 1: 启用)
 	 */
-	@JsonIgnore
 	private Integer status;
 
 	/**
@@ -176,8 +185,84 @@ public class UserInfo implements Serializable {
 		return this.isDel;
 	}
 
-	@Override
-	public String toString() {
-		return "用户ID:" + (userId == null ? "空" : userId) + ",昵称:" + (nickName == null ? "空" : nickName) + ",邮箱:" + (email == null ? "空" : email) + ",qqOpenId:" + (qqOpenId == null ? "空" : qqOpenId) + ",qq头像:" + (qqAvatar == null ? "空" : qqAvatar) + ",密码(md5):" + (password == null ? "空" : password) + ",加入时间:" + (joinTime == null ? "空" : DateUtils.format(joinTime, DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())) + ",最后一次登录时间:" + (lastLoginTime == null ? "空" : DateUtils.format(lastLoginTime, DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())) + ",状态(0: 禁用 1: 启用):" + (status == null ? "空" : status) + ",使用空间，单位byte:" + (useSpace == null ? "空" : useSpace) + ",总空间:" + (totalSpace == null ? "空" : totalSpace) + ",是否删除(0：删除 1：正常):" + (isDel == null ? "空" : isDel);
+	public void setUserIdFuzzy(String userIdFuzzy) {
+		this.userIdFuzzy = userIdFuzzy;
 	}
+
+	public String setUserIdFuzzy() {
+		return this.userIdFuzzy;
+	}
+
+	public void setNickNameFuzzy(String nickNameFuzzy) {
+		this.nickNameFuzzy = nickNameFuzzy;
+	}
+
+	public String setNickNameFuzzy() {
+		return this.nickNameFuzzy;
+	}
+
+	public void setEmailFuzzy(String emailFuzzy) {
+		this.emailFuzzy = emailFuzzy;
+	}
+
+	public String setEmailFuzzy() {
+		return this.emailFuzzy;
+	}
+
+	public void setQqOpenIdFuzzy(String qqOpenIdFuzzy) {
+		this.qqOpenIdFuzzy = qqOpenIdFuzzy;
+	}
+
+	public String setQqOpenIdFuzzy() {
+		return this.qqOpenIdFuzzy;
+	}
+
+	public void setQqAvatarFuzzy(String qqAvatarFuzzy) {
+		this.qqAvatarFuzzy = qqAvatarFuzzy;
+	}
+
+	public String setQqAvatarFuzzy() {
+		return this.qqAvatarFuzzy;
+	}
+
+	public void setPasswordFuzzy(String passwordFuzzy) {
+		this.passwordFuzzy = passwordFuzzy;
+	}
+
+	public String setPasswordFuzzy() {
+		return this.passwordFuzzy;
+	}
+
+	public void setJoinTimeEnd(String joinTimeEnd) {
+		this.joinTimeEnd = joinTimeEnd;
+	}
+
+	public String setJoinTimeEnd() {
+		return this.joinTimeEnd;
+	}
+
+	public void setJoinTimeStart(String joinTimeStart) {
+		this.joinTimeStart = joinTimeStart;
+	}
+
+	public String setJoinTimeStart() {
+		return this.joinTimeStart;
+	}
+
+	public void setLastLoginTimeEnd(String lastLoginTimeEnd) {
+		this.lastLoginTimeEnd = lastLoginTimeEnd;
+	}
+
+	public String setLastLoginTimeEnd() {
+		return this.lastLoginTimeEnd;
+	}
+
+	public void setLastLoginTimeStart(String lastLoginTimeStart) {
+		this.lastLoginTimeStart = lastLoginTimeStart;
+	}
+
+	public String setLastLoginTimeStart() {
+		return this.lastLoginTimeStart;
+	}
+
 }
