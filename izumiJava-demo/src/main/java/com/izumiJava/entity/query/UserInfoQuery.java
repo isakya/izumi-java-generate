@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * @Description:用户信息查询对象
  * @author:izumi
- * @Date:2023/05/24
+ * @Date:2023/05/25
  */
 public class UserInfoQuery{
 	/**

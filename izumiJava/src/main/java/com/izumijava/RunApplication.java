@@ -1,10 +1,7 @@
 package com.izumijava;
 
 import com.izumijava.bean.TableInfo;
-import com.izumijava.builder.BuildBase;
-import com.izumijava.builder.BuildPo;
-import com.izumijava.builder.BuildQuery;
-import com.izumijava.builder.BuildTable;
+import com.izumijava.builder.*;
 
 import java.util.List;
 
@@ -15,6 +12,7 @@ public class RunApplication {
         for(TableInfo tableInfo : tableInfoList) {
             BuildPo.execute(tableInfo);
             BuildQuery.execute(tableInfo);
+            BuildMapper.execute(tableInfo);
         }
     }
 }

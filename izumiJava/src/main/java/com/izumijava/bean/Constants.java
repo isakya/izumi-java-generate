@@ -38,6 +38,13 @@ public class Constants {
     public static String SUFFIX_BEAN_QUERY_TIME_END;
     public static String SUFFIX_BEAN_QUERY_TIME_START;
 
+
+    public static String PATH_MAPPERS;
+    public static String PACKAGE_MAPPERS;
+    public static String SUFFIX_MAPPERS;
+
+
+
     static {
         AUTHOR_COMMENT = PropertiesUtils.getString("author.comment");
 
@@ -62,6 +69,7 @@ public class Constants {
         PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.utils");
         PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.enums");
         PACKAGE_QUERY = PACKAGE_BASE + "." + PropertiesUtils.getString("package.query");
+        PACKAGE_MAPPERS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.mappers");
 
 
         PATH_BASE = PropertiesUtils.getString("path.base");
@@ -71,12 +79,14 @@ public class Constants {
         PATH_UTILS = PATH_BASE + "/" + PACKAGE_UTILS.replace(".", "/");
         PATH_ENUMS = PATH_BASE + "/" + PACKAGE_ENUMS.replace(".", "/");
         PATH_QUERY = PATH_BASE + "/" + PACKAGE_QUERY.replace(".", "/");
+        PATH_MAPPERS = PATH_BASE + "/" + PACKAGE_MAPPERS.replace(".", "/");
 
 
 
         SUFFIX_BEAN_QUERY_FUZZY = PropertiesUtils.getString("suffix.bean.query.fuzzy");
         SUFFIX_BEAN_QUERY_TIME_END = PropertiesUtils.getString("suffix.bean.query.time.start");
         SUFFIX_BEAN_QUERY_TIME_START = PropertiesUtils.getString("suffix.bean.query.time.end");
+        SUFFIX_MAPPERS = PropertiesUtils.getString("suffix.mappers");
     }
 
     public final static String[] SQL_DATE_TIME_TYPES = new String[]{"datetime", "timestamp"};
