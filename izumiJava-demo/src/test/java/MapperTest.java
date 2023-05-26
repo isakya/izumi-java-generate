@@ -150,7 +150,8 @@ public class MapperTest {
         userInfo.setPassword("admin");
         userInfo.setIsDel(0);
         userInfo.setStatus(0);
-        userInfoMapper.updateByUserId(userInfo, 32);
+        Long integer = userInfoMapper.updateByUserId(userInfo, 32);
+        System.out.println(integer);
         // userInfoMapper.updateByEmail(userInfo, "admin19");
     }
 

@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @Description:用户信息
  * @author:izumi
- * @Date:2023/05/26
+ * @Date:2023/05/27
  */
 public class UserInfo implements Serializable {
 	/**

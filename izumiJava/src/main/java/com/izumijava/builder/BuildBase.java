@@ -41,6 +41,11 @@ public class BuildBase {
         headerInfoList.clear();
         headerInfoList.add("package " + Constants.PACKAGE_QUERY);
         build(headerInfoList, "BaseQuery", Constants.PATH_QUERY);
+
+        // 生成生成PaginationResultVO枚举
+        headerInfoList.clear();
+        headerInfoList.add("package " + Constants.PACKAGE_VO);
+        build(headerInfoList, "PaginationResultVO", Constants.PATH_VO);
     }
 
     private static void build(List<String> headerInfoList, String fileName, String outPutPath) {
@@ -66,8 +71,8 @@ public class BuildBase {
             inr = new InputStreamReader(in, "utf-8");
             bf = new BufferedReader(inr);
 
-            for(String head:headerInfoList) {
-                bw.write(head+";");
+            for (String head : headerInfoList) {
+                bw.write(head + ";");
                 bw.newLine();
                 bw.newLine();
             }
