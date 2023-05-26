@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BuildMapper {
-    private static final Logger logger = LoggerFactory.getLogger(BuildTable.class);
+    private static final Logger logger = LoggerFactory.getLogger(BuildMapper.class);
 
     public static void execute(TableInfo tableInfo) {
         File folder = new File(Constants.PATH_MAPPERS);
@@ -72,12 +72,12 @@ public class BuildMapper {
                 bw.newLine();
 
                 BuildComment.createFieldComment(bw, "根据" + methodName + "更新");
-                bw.write("\tT updateBy" + methodName + "(@Param(\"bean\") T t, " + methodParams + ");");
+                bw.write("\tInteger updateBy" + methodName + "(@Param(\"bean\") T t, " + methodParams + ");");
                 bw.newLine();
                 bw.newLine();
 
                 BuildComment.createFieldComment(bw, "根据" + methodName + "删除");
-                bw.write("\tT deleteBy" + methodName + "(" + methodParams + ");");
+                bw.write("\tInteger deleteBy" + methodName + "(" + methodParams + ");");
                 bw.newLine();
                 bw.newLine();
             }

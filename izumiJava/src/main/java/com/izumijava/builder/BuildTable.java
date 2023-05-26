@@ -49,6 +49,7 @@ public class BuildTable {
         ResultSet tableResult = null;
 
         List<TableInfo> tableInfoList = new ArrayList<>();
+
         try {
             ps = conn.prepareStatement(SQL_SHOW_TABLE_STATUS);
             tableResult = ps.executeQuery();
@@ -112,6 +113,7 @@ public class BuildTable {
         ResultSet fieldResult = null;
 
         List<FieldInfo> fieldInfoList = new ArrayList<>();
+        List<FieldInfo> fieldExtendList = new ArrayList<>();
         try {
             ps = conn.prepareStatement(String.format(SQL_SHOW_TABLE_FIELDS, tableInfo.getTableName()));
             fieldResult = ps.executeQuery();
@@ -147,11 +149,39 @@ public class BuildTable {
                 if (ArrayUtils.contains(Constants.SQL_DECIMAL_TYPE, type)) {
                     haveBigDecimal = true;
                 }
+
+                // String类型的参数
+                if (ArrayUtils.contains(Constants.SQL_STRING_TYPE, type)) {
+
+                    FieldInfo fuzzyField = new FieldInfo();
+                    fuzzyField.setJavaType(fieldInfo.getJavaType());
+                    fuzzyField.setPropertyName(propertyName + Constants.SUFFIX_BEAN_QUERY_FUZZY);
+                    fuzzyField.setFieldName(fieldInfo.getFieldName());
+                    fuzzyField.setSqlType(type);
+                    fieldExtendList.add(fuzzyField);
+                }
+                // Date类型
+                if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPES, type) || ArrayUtils.contains(Constants.SQL_DATE_TYPES, type)) {
+                    FieldInfo timeStartField = new FieldInfo();
+                    timeStartField.setJavaType("String");
+                    timeStartField.setPropertyName(propertyName+ Constants.SUFFIX_BEAN_QUERY_TIME_START);
+                    timeStartField.setFieldName(fieldInfo.getFieldName());
+                    timeStartField.setSqlType(type);
+                    fieldExtendList.add(timeStartField);
+
+                    FieldInfo timeEndField = new FieldInfo();
+                    timeEndField.setJavaType("String");
+                    timeEndField.setPropertyName(propertyName+ Constants.SUFFIX_BEAN_QUERY_TIME_END);
+                    timeEndField.setFieldName(fieldInfo.getFieldName());
+                    timeEndField.setSqlType(type);
+                    fieldExtendList.add(timeEndField);
+                }
             }
             tableInfo.setHaveBigDecimal(haveBigDecimal);
             tableInfo.setHaveDate(haveDate);
             tableInfo.setHaveDateTime(haveDateTime);
             tableInfo.setFieldList(fieldInfoList);
+            tableInfo.setFieldExtendList(fieldExtendList);
         } catch (Exception e) {
             logger.error("读取表失败");
         } finally {

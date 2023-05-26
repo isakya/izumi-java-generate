@@ -29,6 +29,10 @@ public class TableInfo {
      */
     private List<FieldInfo> fieldList;
     /**
+     * 扩展字段信息
+     */
+    private List<FieldInfo> fieldExtendList;
+    /**
      * 唯一索引集合
      */
     private Map<String, List<FieldInfo>> keyIndexMap = new LinkedHashMap<>();
@@ -44,6 +48,11 @@ public class TableInfo {
      * 是否有bigdecimal类型
      */
     private Boolean haveBigDecimal;
+
+    // /**
+    //  * 是否有自增长id
+    //  */
+    // private Boolean haveAutoIncrement;
 
     public String getTableName() {
         return tableName;
@@ -115,5 +124,13 @@ public class TableInfo {
 
     public void setHaveBigDecimal(Boolean haveBigDecimal) {
         this.haveBigDecimal = haveBigDecimal;
+    }
+
+    public List<FieldInfo> getFieldExtendList() {
+        return fieldExtendList;
+    }
+
+    public void setFieldExtendList(List<FieldInfo> fieldExtendList) {
+        this.fieldExtendList = fieldExtendList;
     }
 }

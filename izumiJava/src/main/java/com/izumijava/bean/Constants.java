@@ -44,6 +44,8 @@ public class Constants {
     public static String SUFFIX_MAPPERS;
 
 
+    public static String PATH_MAPPERS_XMLS;
+
 
     static {
         AUTHOR_COMMENT = PropertiesUtils.getString("author.comment");
@@ -82,11 +84,12 @@ public class Constants {
         PATH_MAPPERS = PATH_BASE + "/" + PACKAGE_MAPPERS.replace(".", "/");
 
 
-
         SUFFIX_BEAN_QUERY_FUZZY = PropertiesUtils.getString("suffix.bean.query.fuzzy");
         SUFFIX_BEAN_QUERY_TIME_END = PropertiesUtils.getString("suffix.bean.query.time.start");
         SUFFIX_BEAN_QUERY_TIME_START = PropertiesUtils.getString("suffix.bean.query.time.end");
         SUFFIX_MAPPERS = PropertiesUtils.getString("suffix.mappers");
+
+        PATH_MAPPERS_XMLS = PropertiesUtils.getString("path.base") + "/" + PATH_RESOURCES + "/" + PACKAGE_MAPPERS.replace(".", "/");
     }
 
     public final static String[] SQL_DATE_TIME_TYPES = new String[]{"datetime", "timestamp"};
@@ -99,6 +102,6 @@ public class Constants {
     public static void main(String[] args) {
         System.out.println(PATH_BASE);
         System.out.println(PATH_PO);
-        System.out.println(PATH_ENUMS);
+        System.out.println(PATH_MAPPERS_XMLS);
     }
 }

@@ -12,13 +12,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @Description:用户信息
  * @author:izumi
- * @Date:2023/05/25
+ * @Date:2023/05/26
  */
 public class UserInfo implements Serializable {
 	/**
 	 * 用户ID
 	 */
-	private String userId;
+	private Integer userId;
 
 	/**
 	 * 昵称
@@ -80,11 +80,11 @@ public class UserInfo implements Serializable {
 	 */
 	private Integer isDel;
 
-	public void setUserId(String userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
-	public String setUserId() {
+	public Integer getUserId() {
 		return this.userId;
 	}
 
@@ -92,7 +92,7 @@ public class UserInfo implements Serializable {
 		this.nickName = nickName;
 	}
 
-	public String setNickName() {
+	public String getNickName() {
 		return this.nickName;
 	}
 
@@ -100,7 +100,7 @@ public class UserInfo implements Serializable {
 		this.email = email;
 	}
 
-	public String setEmail() {
+	public String getEmail() {
 		return this.email;
 	}
 
@@ -108,7 +108,7 @@ public class UserInfo implements Serializable {
 		this.qqOpenId = qqOpenId;
 	}
 
-	public String setQqOpenId() {
+	public String getQqOpenId() {
 		return this.qqOpenId;
 	}
 
@@ -116,7 +116,7 @@ public class UserInfo implements Serializable {
 		this.qqAvatar = qqAvatar;
 	}
 
-	public String setQqAvatar() {
+	public String getQqAvatar() {
 		return this.qqAvatar;
 	}
 
@@ -124,7 +124,7 @@ public class UserInfo implements Serializable {
 		this.password = password;
 	}
 
-	public String setPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 
@@ -132,7 +132,7 @@ public class UserInfo implements Serializable {
 		this.joinTime = joinTime;
 	}
 
-	public Date setJoinTime() {
+	public Date getJoinTime() {
 		return this.joinTime;
 	}
 
@@ -140,7 +140,7 @@ public class UserInfo implements Serializable {
 		this.lastLoginTime = lastLoginTime;
 	}
 
-	public Date setLastLoginTime() {
+	public Date getLastLoginTime() {
 		return this.lastLoginTime;
 	}
 
@@ -148,7 +148,7 @@ public class UserInfo implements Serializable {
 		this.status = status;
 	}
 
-	public Integer setStatus() {
+	public Integer getStatus() {
 		return this.status;
 	}
 
@@ -156,7 +156,7 @@ public class UserInfo implements Serializable {
 		this.useSpace = useSpace;
 	}
 
-	public Long setUseSpace() {
+	public Long getUseSpace() {
 		return this.useSpace;
 	}
 
@@ -164,7 +164,7 @@ public class UserInfo implements Serializable {
 		this.totalSpace = totalSpace;
 	}
 
-	public Long setTotalSpace() {
+	public Long getTotalSpace() {
 		return this.totalSpace;
 	}
 
@@ -172,7 +172,7 @@ public class UserInfo implements Serializable {
 		this.isDel = isDel;
 	}
 
-	public Integer setIsDel() {
+	public Integer getIsDel() {
 		return this.isDel;
 	}
 

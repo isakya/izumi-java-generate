@@ -110,7 +110,7 @@ public class BuildPo {
                 bw.newLine();
 
                 // get
-                bw.write("\tpublic " + field.getJavaType() + " set" + tempField + "(" + ") {");
+                bw.write("\tpublic " + field.getJavaType() + " get" + tempField + "(" + ") {");
                 bw.newLine();
                 bw.write("\t\treturn this." + field.getPropertyName() + ";");
                 bw.newLine();

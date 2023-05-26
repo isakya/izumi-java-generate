@@ -6,15 +6,13 @@ import java.util.Date;
 /**
  * @Description:用户信息查询对象
  * @author:izumi
- * @Date:2023/05/25
+ * @Date:2023/05/26
  */
-public class UserInfoQuery{
+public class UserInfoQuery extends BaseQuery {
 	/**
 	 * 用户ID
 	 */
-	private String userId;
-
-	private String userIdFuzzy;
+	private Integer userId;
 
 	/**
 	 * 昵称
@@ -89,11 +87,11 @@ public class UserInfoQuery{
 	 */
 	private Integer isDel;
 
-	public void setUserId(String userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
-	public String setUserId() {
+	public Integer setUserId() {
 		return this.userId;
 	}
 
@@ -183,14 +181,6 @@ public class UserInfoQuery{
 
 	public Integer setIsDel() {
 		return this.isDel;
-	}
-
-	public void setUserIdFuzzy(String userIdFuzzy) {
-		this.userIdFuzzy = userIdFuzzy;
-	}
-
-	public String setUserIdFuzzy() {
-		return this.userIdFuzzy;
 	}
 
 	public void setNickNameFuzzy(String nickNameFuzzy) {
