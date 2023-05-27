@@ -16,12 +16,12 @@ public interface UserInfoMapper<T, P> extends BaseMapper {
 	/**
 	 * 根据UserId更新
 	 */
-	Long updateByUserId(@Param("bean") T t, @Param("userId") Integer userId);
+	Integer updateByUserId(@Param("bean") T t, @Param("userId") Integer userId);
 
 	/**
 	 * 根据UserId删除
 	 */
-	Long deleteByUserId(@Param("userId") Integer userId);
+	Integer deleteByUserId(@Param("userId") Integer userId);
 
 	/**
 	 * 根据NickName查询
@@ -31,12 +31,12 @@ public interface UserInfoMapper<T, P> extends BaseMapper {
 	/**
 	 * 根据NickName更新
 	 */
-	Long updateByNickName(@Param("bean") T t, @Param("nickName") String nickName);
+	Integer updateByNickName(@Param("bean") T t, @Param("nickName") String nickName);
 
 	/**
 	 * 根据NickName删除
 	 */
-	Long deleteByNickName(@Param("nickName") String nickName);
+	Integer deleteByNickName(@Param("nickName") String nickName);
 
 	/**
 	 * 根据Email查询
@@ -46,12 +46,12 @@ public interface UserInfoMapper<T, P> extends BaseMapper {
 	/**
 	 * 根据Email更新
 	 */
-	Long updateByEmail(@Param("bean") T t, @Param("email") String email);
+	Integer updateByEmail(@Param("bean") T t, @Param("email") String email);
 
 	/**
 	 * 根据Email删除
 	 */
-	Long deleteByEmail(@Param("email") String email);
+	Integer deleteByEmail(@Param("email") String email);
 
 	/**
 	 * 根据QqOpenId查询
@@ -61,11 +61,11 @@ public interface UserInfoMapper<T, P> extends BaseMapper {
 	/**
 	 * 根据QqOpenId更新
 	 */
-	Long updateByQqOpenId(@Param("bean") T t, @Param("qqOpenId") String qqOpenId);
+	Integer updateByQqOpenId(@Param("bean") T t, @Param("qqOpenId") String qqOpenId);
 
 	/**
 	 * 根据QqOpenId删除
 	 */
-	Long deleteByQqOpenId(@Param("qqOpenId") String qqOpenId);
+	Integer deleteByQqOpenId(@Param("qqOpenId") String qqOpenId);
 
 }
