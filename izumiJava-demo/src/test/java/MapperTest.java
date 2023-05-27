@@ -44,7 +44,7 @@ public class MapperTest {
         userInfo.setPassword("admin");
         userInfo.setIsDel(0);
         userInfo.setStatus(0);
-        Long insert = userInfoMapper.insert(userInfo);
+        Integer insert = userInfoMapper.insert(userInfo);
         System.out.println(insert.longValue());
     }
 
@@ -59,7 +59,7 @@ public class MapperTest {
         userInfo.setPassword("admin12223");
         userInfo.setIsDel(0);
         userInfo.setStatus(0);
-        Long insert = userInfoMapper.insertOrUpdate(userInfo);
+        Integer insert = userInfoMapper.insertOrUpdate(userInfo);
     }
 
     @Test
@@ -150,7 +150,7 @@ public class MapperTest {
         userInfo.setPassword("admin");
         userInfo.setIsDel(0);
         userInfo.setStatus(0);
-        Long integer = userInfoMapper.updateByUserId(userInfo, 32);
+        Integer integer = userInfoMapper.updateByUserId(userInfo, 32);
         System.out.println(integer);
         // userInfoMapper.updateByEmail(userInfo, "admin19");
     }

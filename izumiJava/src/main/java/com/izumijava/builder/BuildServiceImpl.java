@@ -64,7 +64,7 @@ public class BuildServiceImpl {
 
             BuildComment.createClassComment(bw, tableInfo.getComment() + "Service");
             bw.newLine();
-            bw.write("@Service(\"" + mapperBeanName + "\")");
+            bw.write("@Service(\"" + StringUtils.lowerCaseFirstLetter(interfaceName) + "\")");
             bw.newLine();
             bw.write("public class " + className + " implements " + interfaceName + " {");
             bw.newLine();

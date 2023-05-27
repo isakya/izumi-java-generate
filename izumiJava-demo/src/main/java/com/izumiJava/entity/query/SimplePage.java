@@ -1,5 +1,4 @@
 package com.izumiJava.entity.query;
-
 import com.izumiJava.enums.PageSize;
 
 public class SimplePage {
